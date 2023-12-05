@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import { BrowserRouter , Route, Routes } from 'react-router-dom' ;
 import './App.css';
+import { AllNews } from './components/AllNews';
+import { NavigationBar } from './components/NavigationBar';
+import { TopHeadline } from './components/TopHeadline';
+import { Weather } from './components/Weather';
+import { RegistrationForm } from './components/RegistrationForm';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+      <BrowserRouter >
+      <NavigationBar></NavigationBar>
+      <Routes>
+        <Route path='/' element={<TopHeadline />}></Route>
+        <Route path='/allnews' element={<AllNews />}></Route>
+        <Route path='/weather' element={<Weather />}></Route>
+        <Route path='/register' element={<RegistrationForm />}></Route>
+      </Routes>
+      
+      </BrowserRouter>
+
   );
 }
 
